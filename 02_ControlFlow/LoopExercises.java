@@ -45,10 +45,10 @@ public class LoopExercises {
         int b = 1;
         int c;
         for (int i = 1; i <= 20; i++){
+            System.out.println(a);
             c = a + b;
             a = b;
             b = c;
-            System.out.println(c);
         }
         System.out.println("Exercise 6a - Fibonacci - first greater than 1000");
         a = 1;
@@ -98,6 +98,7 @@ public class LoopExercises {
 
         System.out.println("Exercise 8a - Collatz");
         n = 27;
+        int start = n;
         int i = 0;
         do {
             if (n % 2 == 0){
@@ -107,9 +108,9 @@ public class LoopExercises {
             }
             i++;
         }while (n != 1);
-        System.out.printf("Start: %d; Steps: %d", n, i);
+        System.out.printf("Start: %d; Steps: %d", start, i);
 
-        System.out.println("\nExercise 8a - Collatz - longest series below 1 000 000 start point");
+        System.out.println("\nExercise 8b - Collatz - longest series below 1 000 000 start point");
         int maxSteps = 0;
         int longestStart = 0;
         for(i = 1; i < 1000000; i++){
@@ -128,6 +129,17 @@ public class LoopExercises {
                 longestStart = i;
             }
         }
-        System.out.printf("%d; %d", maxSteps, longestStart);
+        System.out.printf("%d; %d%n", maxSteps, longestStart);
+        System.out.println("Exercise 6b - Fibonacci - int version with Math.addExact");
+        int p = 1;
+        int q = 1;
+        int index = 2;   // q to F(index)
+        while (true){
+            int next = Math.addExact(p, q);
+            p = q;
+            q = next;
+            index++;
+            System.out.println("F" + index + " = " + q);   // ostatni wypisany: F46 = 1836311903
+        }
     }
 }
